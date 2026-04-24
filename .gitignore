@@ -1,0 +1,11 @@
+# Local test artifacts
+shot-*.png
+
+# Optional tooling
+node_modules/
+package-lock.json
+package.json
+
+# Editor / OS
+.DS_Store
+Thumbs.db

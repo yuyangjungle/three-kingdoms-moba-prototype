@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="群雄峡谷：原创三国题材 3v3 MOBA 前端原型，可本地试玩，也可部署到 GitHub Pages。">
+  <meta name="theme-color" content="#08100f">
+  <title>群雄峡谷 - 三国 MOBA Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <section class="canvas-shell">
+      <canvas id="gameCanvas"></canvas>
+      <div class="chrome-vignette" aria-hidden="true"></div>
+      <div class="scanlines" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <div class="brand-block">
+          <p class="eyebrow">原创三国 MOBA 原型</p>
+          <h1>群雄峡谷</h1>
+          <p class="lead compact-lead">三路攻防 · 祭坛争夺 · 3v3 单机演武</p>
+        </div>
+        <div class="topbar-meta">
+          <span>全屏战场 HUD</span>
+          <span>三国军阵美术方向</span>
+          <span>可本地直接开打</span>
+        </div>
+      </header>
+
+      <aside class="hud-dock">
+        <section class="side-panel stats-panel">
+          <div class="panel-kicker">将台</div>
+          <h2>英雄情报</h2>
+          <div id="heroStats" class="stats-empty">选将后会在这里显示实时属性、经济和背包。</div>
+        </section>
+
+        <section class="side-panel shop-panel" id="shopPanel">
+          <div class="panel-head">
+            <div>
+              <div class="panel-kicker">军备坊</div>
+              <h2>出装</h2>
+            </div>
+            <span>只可在己方基地购买</span>
+          </div>
+
+          <button data-item="warblade" class="shop-button">
+            <strong>铁骑长枪</strong>
+            <span>450 金</span>
+            <small>+18 攻击，+6% 移速</small>
+          </button>
+          <button data-item="bulwark" class="shop-button">
+            <strong>玄甲重铠</strong>
+            <span>500 金</span>
+            <small>+240 生命，+14 护甲</small>
+          </button>
+          <button data-item="warbook" class="shop-button">
+            <strong>奇门兵书</strong>
+            <span>520 金</span>
+            <small>+28 谋略，+10% 冷却缩减</small>
+          </button>
+        </section>
+
+        <section class="side-panel notes-panel">
+          <div class="panel-kicker">作战条令</div>
+          <h2>玩法说明</h2>
+          <ul class="notes">
+            <li>推荐直接双击本目录下的 <code>index.html</code> 或 <code>launch_game.cmd</code> 开始试玩。</li>
+            <li>当前版本重心是推线、打团、推塔和节奏，不是商用成品。</li>
+            <li>如果你想继续扩成联网、更多英雄、野区和装备树，我可以在这版上接着做。</li>
+          </ul>
+        </section>
+      </aside>
+
+      <div class="control-strip">WASD 移动 · 鼠标瞄准 · J/K/L 技能 · B 回城</div>
+
+      <div id="heroSelect" class="overlay">
+        <div class="panel hero-panel">
+          <div class="hero-panel-head">
+            <div>
+              <p class="eyebrow">群雄整军</p>
+              <h2>选将出征</h2>
+            </div>
+            <div class="hero-mode-badge">三国战场 · 原创演绎</div>
+          </div>
+
+          <p class="lead">
+            这是一个可本地试玩的原创三国题材 MOBA Demo。人物与设定取材自三国历史氛围和大众熟悉的三国梗文化，
+            但没有直接使用《英雄联盟》或《三国杀》的原版素材、美术与文案。
+          </p>
+
+          <div id="heroCards" class="hero-grid"></div>
+
+          <div class="help-grid">
+            <div class="help-card">
+              <h3>操作</h3>
+              <ul>
+                <li><strong>W A S D</strong> 移动</li>
+                <li><strong>鼠标</strong> 朝向与技能瞄准</li>
+                <li><strong>J / K / L</strong> 释放技能</li>
+                <li><strong>B</strong> 回城</li>
+              </ul>
+            </div>
+            <div class="help-card">
+              <h3>规则</h3>
+              <ul>
+                <li>摧毁敌方帅帐即可获胜</li>
+                <li>三路会持续刷兵，防御塔优先攻击小兵</li>
+                <li>中央祭坛可提供全队增益，适合打团前争夺</li>
+                <li>站在己方基地范围内可快速回血并购买装备</li>
+              </ul>
+            </div>
+          </div>
+
+          <button id="startButton" class="primary-button" disabled>先选一位英雄</button>
+        </div>
+      </div>
+
+      <div id="endOverlay" class="overlay hidden">
+        <div class="panel end-panel">
+          <p class="eyebrow">战局结束</p>
+          <h2 id="endTitle">胜负已分</h2>
+          <p id="endText" class="lead"></p>
+          <button id="restartButton" class="primary-button">再来一局</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
