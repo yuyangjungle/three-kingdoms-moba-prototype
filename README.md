@@ -6,6 +6,14 @@ An original Three Kingdoms-themed 3v3 MOBA prototype built with HTML, CSS, Canva
 ![选将界面](assets/screenshots/menu.png)
 ![战斗界面](assets/screenshots/gameplay.png)
 
+## 在线试玩
+
+计划中的公开试玩地址：
+
+`https://yuyangjungle.github.io/three-kingdoms-moba-prototype/`
+
+如果你打开后看到 `404`，通常不是代码问题，而是仓库还没有在 `Settings -> Pages` 中启用 `GitHub Actions` 作为部署来源。
+
 ## 项目定位
 
 `群雄峡谷` 目前是一个可公开展示、可本地试玩、可部署到 GitHub Pages 的前端游戏原型。
@@ -153,6 +161,14 @@ An original Three Kingdoms-themed 3v3 MOBA prototype built with HTML, CSS, Canva
 
 仓库中已经可以配 GitHub Actions 自动部署。  
 如果你的仓库启用了 Pages，推送到 `main` 后就可以自动发布。
+
+## 仓库展示建议
+
+建议在 GitHub 仓库右侧 `About` 中补充：
+
+- Description: `Original Three Kingdoms-themed 3v3 MOBA prototype built with HTML5 Canvas and vanilla JavaScript.`
+- Website: `https://yuyangjungle.github.io/three-kingdoms-moba-prototype/`
+- Topics: `game`, `moba`, `three-kingdoms`, `html5`, `canvas`, `javascript`, `frontend`, `prototype`
 
 ## 文件结构
 
