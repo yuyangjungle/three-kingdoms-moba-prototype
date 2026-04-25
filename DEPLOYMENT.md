@@ -50,3 +50,11 @@
 3. 在 `Build and deployment` 中选择 `GitHub Actions`
 
 之后再次推送即可自动发布。
+
+如果 Actions 日志里出现 `Resource not accessible by integration`，通常表示：
+
+- 工作流已经可以尝试配置 Pages
+- 但仓库当前还没有完成首次 Pages 启用
+- 这时需要由仓库所有者在 GitHub 网页端手动开启一次
+
+这属于 GitHub 仓库设置问题，不是前端代码或静态资源本身的问题。
